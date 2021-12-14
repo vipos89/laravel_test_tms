@@ -4,7 +4,6 @@
     use App\Http\Controllers\HomeController;
     use App\Http\Controllers\ProductController;
     use App\Http\Controllers\SiteController;
-    use App\Models\Product;
     use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,27 +26,9 @@ Route::get('/', function () {
 Route::get('show-form', [FormController::class, 'showForm'])->name('showForm');
 Route::post('show-form', [FormController::class, 'postForm'])->name('namePostForm');
 
-Route::get('productskdfbksdfbksdfksdfbksdfkjsd/{id}', [ProductController::class, 'index'])->name('show-product');
+Route::get('catalog', [ProductController::class, 'catalog'])->name('catalog');
+Route::get('products/{id}', [ProductController::class, 'index'])->name('show-product');
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Route::get('catalogsdfsdfdsfsdfsdf', function () {
-      //  dd(\route('sdfsdfds'));
-
-        return view('store');
-})->name('sdfsdfds');
 
 Route::get('hello', [SiteController::class, 'index']);
 
