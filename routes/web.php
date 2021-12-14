@@ -1,5 +1,8 @@
 <?php
 
+    use App\Http\Controllers\FormController;
+    use App\Http\Controllers\HomeController;
+    use App\Http\Controllers\ProductController;
     use App\Http\Controllers\SiteController;
     use App\Models\Product;
     use Illuminate\Support\Facades\Route;
@@ -15,30 +18,39 @@
 |
 */
 
+
+
 Route::get('/', function () {
-    //$product = Product::find(1);
-    // select * from products where status = true and price > 10 000
-    //
-    $list = Product::query()
-            ->where('status', true)
-            ->where('price', '>', 10000)
-            ->get();
-//    $product = Product::find(10000);
-//    $product->name = 'asdasdsa';
-//    $product->save();
-//   // dd($list);
-
-
-
     return view('main');
 });
 
-Route::get('store', function () {
+Route::get('show-form', [FormController::class, 'showForm'])->name('showForm');
+Route::post('show-form', [FormController::class, 'postForm'])->name('namePostForm');
+
+Route::get('productskdfbksdfbksdfksdfbksdfkjsd/{id}', [ProductController::class, 'index'])->name('show-product');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Route::get('catalogsdfsdfdsfsdfsdf', function () {
+      //  dd(\route('sdfsdfds'));
+
         return view('store');
-});
+})->name('sdfsdfds');
 
 Route::get('hello', [SiteController::class, 'index']);
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
