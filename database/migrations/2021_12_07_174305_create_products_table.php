@@ -20,7 +20,7 @@ class CreateProductsTable extends Migration
             $table->text('content')->nullable(true);
             $table->integer('price')->default(0);
             $table->boolean('status')->default(true);
-            $table->timestamps();
+           // $table->timestamps();
         });
     }
 

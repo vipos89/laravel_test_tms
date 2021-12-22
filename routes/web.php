@@ -23,8 +23,24 @@ Route::get('/', function () {
     return view('main');
 });
 
-Route::get('show-form', [FormController::class, 'showForm'])->name('showForm');
-Route::post('show-form', [FormController::class, 'postForm'])->name('namePostForm');
+Route::get('admin', function (){
+   return view('admin.index');
+});
+
+
+
+
+Route::prefix('admin')->name('admin.')->group(function (){
+    Route::resources([
+                         'brand' => \App\Http\Controllers\Admin\BrandController::class,
+                         'category' => \App\Http\Controllers\Admin\CategoryController::class,
+                         'product' => \App\Http\Controllers\Admin\ProductController::class
+                     ]);
+});
+
+
+
+
 
 Route::get('catalog', [ProductController::class, 'catalog'])->name('catalog');
 Route::get('products/{id}', [ProductController::class, 'index'])->name('show-product');
