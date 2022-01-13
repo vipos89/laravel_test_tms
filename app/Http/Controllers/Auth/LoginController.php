@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
@@ -35,6 +37,7 @@ class LoginController extends Controller
      */
     public function __construct()
     {
+       Hash::check('secret', 'skdhviikbrskdgksdsv', );
         $this->middleware('guest')->except('logout');
     }
 }
